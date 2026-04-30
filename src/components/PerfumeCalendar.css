@@ -1,0 +1,579 @@
+.perfume-calendar {
+  padding: 16px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.calendar-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #2f3336;
+  background: transparent;
+  color: #e7e9ea;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.calendar-nav-btn:hover {
+  background: #181919;
+  border-color: #536471;
+}
+
+.calendar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-month {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.calendar-today-btn {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid #2f3336;
+  background: transparent;
+  color: #1d9bf0;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calendar-today-btn:hover {
+  background: rgba(29, 155, 240, 0.1);
+  border-color: #1d9bf0;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 12px;
+  color: #71767b;
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.calendar-day.empty {
+  cursor: default;
+}
+
+.calendar-day:not(.empty):hover {
+  background: #181919;
+  border-color: #2f3336;
+}
+
+.calendar-day.today {
+  border-color: #1d9bf0;
+}
+
+.calendar-day.today .day-number {
+  color: #1d9bf0;
+  font-weight: 700;
+}
+
+.calendar-day.has-record {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.day-number {
+  font-size: 13px;
+  color: #e7e9ea;
+  line-height: 1;
+}
+
+.day-perfume {
+  position: absolute;
+  bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-perfume-img {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.day-perfume-icon {
+  font-size: 14px;
+}
+
+.record-modal {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  background: #16181c;
+  border: 1px solid #2f3336;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  z-index: 1001;
+  overflow-y: auto;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(100%);
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.record-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.record-modal-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.current-record {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.record-detail-section {
+  margin-top: 16px;
+}
+
+.record-detail-divider {
+  height: 1px;
+  background: #2f3336;
+  margin-bottom: 16px;
+}
+
+.current-record-simple {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.current-record-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.current-record-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.current-record-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.record-post-detail {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.record-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 8px;
+}
+
+.record-post-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.record-post-top .avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1d1f23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.record-post-time {
+  font-size: 12px;
+  color: #71767b;
+}
+
+.record-post-image {
+  width: 100%;
+  max-height: 240px;
+  overflow: hidden;
+}
+
+.record-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 12px;
+  max-width: calc(100% - 24px);
+}
+
+.record-post-body {
+  padding: 10px 12px 14px;
+}
+
+.record-post-name {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.record-post-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.record-post-meta .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.record-post-meta .meta-label {
+  font-size: 12px;
+  color: #71767b;
+  flex-shrink: 0;
+}
+
+.record-post-meta .meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.record-post-meta .meta-tag {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #c084fc;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.record-post-meta .meta-value {
+  font-size: 13px;
+  color: #e7e9ea;
+}
+
+.record-post-notes {
+  border-top: 1px solid #2f3336;
+  padding-top: 10px;
+}
+
+.record-post-notes h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #71767b;
+}
+
+.record-notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.record-note-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 56px;
+}
+
+.record-note-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.record-note-item span {
+  font-size: 10px;
+  color: #71767b;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.remove-record-btn {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid #f87171;
+  background: transparent;
+  color: #f87171;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remove-record-btn:hover {
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.record-mode-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  border-radius: 9999px;
+  background: #16181c;
+  border: 1px solid #2f3336;
+  overflow: hidden;
+}
+
+.mode-tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: #71767b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-tab.active {
+  background: #1d9bf0;
+  color: white;
+}
+
+.perfume-select-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.perfume-select-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #2f3336;
+}
+
+.perfume-select-item:hover {
+  background: #181919;
+  border-color: #536471;
+}
+
+.perfume-select-item.current {
+  border-color: rgba(124, 58, 237, 0.4);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.select-check {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #7c3aed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.perfume-select-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.perfume-select-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.perfume-select-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.perfume-select-family {
+  font-size: 12px;
+  color: #71767b;
+}
+
+.empty-perfumes {
+  text-align: center;
+  padding: 32px 16px;
+  color: #71767b;
+}
+
+.empty-hint {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.custom-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.custom-input-section .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.custom-input-section .form-group label {
+  font-size: 13px;
+  color: #71767b;
+  font-weight: 500;
+}
+
+.custom-input-section .form-group input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #2f3336;
+  background: #1d1f23;
+  color: #e7e9ea;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.custom-input-section .form-group input:focus {
+  border-color: #1d9bf0;
+}
+
+.custom-image-area .image-preview {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-image-area .image-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.custom-image-area .remove-image-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f87171;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-placeholder.small {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 2px dashed #2f3336;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-size: 12px;
+  color: #71767b;
+}
+
+.upload-placeholder.small:hover {
+  border-color: #536471;
+}
+
+.custom-submit-btn {
+  padding: 12px;
+  border-radius: 9999px;
+  border: none;
+  background: #1d9bf0;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.custom-submit-btn:hover:not(:disabled) {
+  background: #1a8cd8;
+}
+
+.custom-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

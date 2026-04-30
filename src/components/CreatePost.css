@@ -1,0 +1,111 @@
+.floating-button {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1d9bf0;
+  color: white;
+  border: none;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 1000;
+}
+
+.floating-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.floating-button:active {
+  transform: scale(0.95);
+}
+
+.type-menu {
+  position: fixed;
+  bottom: 108px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  animation: typeMenuIn 0.2s ease;
+}
+
+@keyframes typeMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.type-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  border: 1px solid #2f3336;
+  background: #16181c;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.type-menu-item:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.type-menu-item.owned {
+  border-color: rgba(0, 186, 124, 0.3);
+}
+
+.type-menu-item.owned:hover {
+  background: rgba(0, 186, 124, 0.08);
+  border-color: rgba(0, 186, 124, 0.5);
+}
+
+.type-menu-item.wanted {
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.type-menu-item.wanted:hover {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.type-menu-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.type-menu-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.type-menu-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e7e9ea;
+}
+
+.type-menu-desc {
+  font-size: 12px;
+  color: #71767b;
+}
